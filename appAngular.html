@@ -20,7 +20,11 @@
 	
 	<script src="js/provider/geradorSerialProvider.js"></script>
 	<script src="js/config/geradorSerialProviderConfig.js"></script>
+
 	<script src="js/directive/uiAlertDirective.js"></script>
+	<script src="js/directive/uiDateDirective.js"></script>
+	<script src="js/directive/UiAccordion.js"></script>
+
 
 	<script src="filters/testeFilter.js"></script>
 	<script src="filters/cortarString.js"></script>
@@ -51,8 +55,13 @@
 
 	<div class="row"></div>
 
-	<div ui-alert></div>
+	<div ui-alert title="Ops! Aconteceu um problema. :[" >
+		ERRO-PERSONALIZADO : {{error}}
+	</div>
 	
+	<div ui-acoordion>
+	</div>	
+
 
 	<div class="col-md-6 text-center" ng-if="contatos.length > 0">
 		<table class="table table-striped">
@@ -107,6 +116,13 @@
 			<select class="form-control" ng-model="contato.operadora" ng-options="operadora.nome + ' ' + (operadora.preco | currency) group by operadora.categoria for operadora in operadoras | orderBy:'nome' ">
 				<option value="">Selecione Uma Operadora</option>
 			</select>
+		</div>
+
+		<div class="row"></div>
+		<div class="col-md-6 form-input">
+			<label class="form-label">Data</label>
+			<input type="text" ng-model="contato.data" class="form-control" name="data" ui-date/>
+ 			
 		</div>
 
 		<div class="row"></div>
